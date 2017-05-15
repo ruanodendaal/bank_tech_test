@@ -15,25 +15,32 @@ class Account
   end
 
   def deposit(amount)
-    self.balance += amount
+    add_to_balance(amount)
     transaction = Transaction.new(amount, balance)
     update_statement(transaction)
   end
 
   def withdraw(amount)
-    self.balance -= amount
+    remove_from_balace(amount)
     transaction = Transaction.new(-amount, balance)
     update_statement(transaction)
   end
 
-
   def print_statement
-    statement.print
+    self.statement.print
   end
 
   private
 
   attr_writer :balance
+
+  def add_to_balance(amount)
+    self.balance += amount
+  end
+
+  def remove_from_balace(amount)
+    self.balance -= amount
+  end
 
   def update_statement(transaction)
     self.statement.summary << transaction
