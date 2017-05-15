@@ -1,8 +1,13 @@
 class Statement
 
-  attr_reader :summary
+  attr_accessor :summary
 
   def initialize
     @summary = []
   end
+
+  def print
+    puts "date || credit || debit || balance"
+  end
+
 end

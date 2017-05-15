@@ -1,7 +1,6 @@
 require 'account'
 require 'statement'
-require 'deposit'
-require 'withdrawl'
+require 'transaction'
 require 'timecop'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

@@ -1,7 +1,7 @@
 describe Account do
   subject(:account) { described_class.new }
   subject(:statement) { described_class.new }
-  subject(:deposit) { described_class.new }
+  subject(:transaction) { described_class.new }
 
   describe '#initialization' do
     it 'should create a bance of zero' do
@@ -9,22 +9,41 @@ describe Account do
     end
   end
 
-  describe '#make_transaction' do
+  describe '#balance' do
+    it 'should return the balance' do
+      account.deposit(100)
+      expect(account.balance).to eq 100
+    end
+  end
+
+  describe '#deposit' do
     it 'when a deposit it should increase the balance' do
-      deposit = Deposit.new(100)
-      account.make_transaction(deposit)
+      account.deposit(100)
       expect(account.balance).to eq 100
     end
 
+    it 'should add transaction to statement' do
+      account.deposit(100)
+      expect(account.statement.summary).not_to be_empty
+    end
+  end
+
+  describe '#withdrawl' do
     it 'when a withdrawl it should decrease the balance' do
       # allow(account).to receive(:balance) { 100 }
-      deposit = Deposit.new(100)
-      account.make_transaction(deposit)
+      account.deposit(100)
 
-      withdrawl = Withdrawl.new(25)
-      account.make_transaction(withdrawl)
+      account.withdraw(25)
       expect(account.balance).to eq 75
     end
   end
+
+
+
+  # describe '#print_statement' do
+  #   it 'should print transactions' do
+  #     expect(account.print_statement).to eq
+  #   end
+  # end
 
 end
