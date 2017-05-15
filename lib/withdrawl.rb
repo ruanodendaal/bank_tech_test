@@ -1,8 +1,9 @@
 class Withdrawl
 
-  attr_accessor :amount
+  attr_reader :amount, :date
 
   def initialize(amount)
     @amount = amount
+    @date = Date.today
   end
 end

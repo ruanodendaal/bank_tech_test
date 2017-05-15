@@ -9,6 +9,29 @@
 * Account statement (date, amount, balance) printing.
 * Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
+### User Stories
+```
+As a customer
+I want to be able to open an account
+so that I can bank
+```
+```
+As a customer
+I want to deposit money into my account
+so that I increase my balance
+```
+```
+As a customer
+I want to withdraw money from my account
+so that I can by goods
+```
+```
+As a customer
+I want an account statement
+so that I can keep track of my account usage
+```
+
+
 ### Acceptance criteria
 
 **Given** a client makes a deposit of 1000 on 10-01-2012
