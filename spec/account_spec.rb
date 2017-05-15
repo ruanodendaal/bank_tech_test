@@ -17,7 +17,7 @@ describe Account do
   end
 
   describe '#deposit' do
-    it 'when a deposit it should increase the balance' do
+    it 'when a deposit is made it should increase the balance' do
       account.deposit(100)
       expect(account.balance).to eq 100
     end
@@ -37,13 +37,4 @@ describe Account do
       expect(account.balance).to eq 75
     end
   end
-
-
-
-  # describe '#print_statement' do
-  #   it 'should print transactions' do
-  #     expect(account.print_statement).to eq
-  #   end
-  # end
-
 end
