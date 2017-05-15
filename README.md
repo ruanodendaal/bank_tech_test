@@ -47,3 +47,30 @@ date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
+```
+
+### Instructions
+
+```ruby
+::: require './lib/account'
+=> true
+::: a = Account.new
+=> #<Account:0x007fba028e82a8 @balance=0, @statement=#<Statement:0x007fba028e8208 @summary=[]>>
+::: account.deposit(1000)
+=> [#<Transaction:0x007fba02810bc8 @amount=1000, @balance=1000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>]
+::: account.deposit(2000)
+=> [#<Transaction:0x007fba02810bc8 @amount=1000, @balance=1000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>,
+ #<Transaction:0x007fba010de3d8 @amount=2000, @balance=3000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>]
+::: account.withdraw(500)
+=> [#<Transaction:0x007fba02810bc8 @amount=1000, @balance=1000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>,
+ #<Transaction:0x007fba010de3d8 @amount=2000, @balance=3000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>,
+ #<Transaction:0x007fba019bbd20 @amount=-500, @balance=2500, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>]
+::: account.print_statement
+date || credit || debit || balance
+15/05/2017 || || 500.00 || 2500.00
+15/05/2017 || 2000.00 || || 3000.00
+15/05/2017 || 1000.00 || || 1000.00
+=> [#<Transaction:0x007fba019bbd20 @amount=-500, @balance=2500, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>,
+ #<Transaction:0x007fba010de3d8 @amount=2000, @balance=3000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>,
+ #<Transaction:0x007fba02810bc8 @amount=1000, @balance=1000, @date=#<Date: 2017-05-15 ((2457889j,0s,0n),+0s,2299161j)>>]
+```
